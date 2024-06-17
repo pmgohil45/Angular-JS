@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<!-- ng-app or data-ng-app both are same we can you anyone -->
+<div ng-app="" ng-init="firstName='Prakash'">
+    <p>Input something in the input box:</p>
+    <p>Name: <input type="text" ng-model="name"></p>
+    <p ng-bind="name"></p>
+    
+    <!-- ng init - initialize variables -->
+    <p>The name is <span ng-bind="firstName"></span></p>
+
+    <!-- expression {{1+1}}-->
+    <p>1st Expression: {{10+10}}</p>
+    <p>2nd Expression: {{name}}</p>
+    
+</div>
+</body>
+</html>
