@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<!-- ng-app or data-ng-app both are same we can you anyone -->
+<div ng-app="" ng-init="myCol='cyan';a=2;b=7;fnm='Pm';lnm='Gohil';person={fnm:'Prakash',lnm:'Gohil'};arrNum=[54,32,55,66,89]">
+    <p>Input something in the input box:</p>
+    <p>Name: <input type="text" style="background-color:{{myCol}}" ng-model="name"></p>
+    <!-- expression {{1+1}}-->
+    <p>1st Expression: {{10+10}}</p>
+    <p>2nd Expression: {{name}}</p>
+    <p>3rd Expression: {{myCol}}</p>
+    <p>4th Expression: {{a*b}}</p>
+    <p>5ft Expression: <span ng-bind="a*b"></span></p>
+    <!-- string expression -->
+    <p>6th Expression: {{fnm+" "+lnm}}</p>
+    <p>7ft Expression: <span ng-bind="fnm+' '+lnm"></span></p>
+    <!-- object -->
+    <p>8th Expression: <span ng-bind="person.fnm"></span></p>
+    <p>9th Expression: {{person.lnm}}</p>
+    <!-- array -->
+    <p>10th Expression: <span ng-bind="arrNum[3]"></span></p>
+    <p>11th Expression: {{arrNum[2]}}</p>
+</div>
+</body>
+</html>
