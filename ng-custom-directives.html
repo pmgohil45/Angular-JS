@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body ng-app="myApp">
+
+<prakash></prakash> <!-- E -->
+<div prakash></div> <!-- A -->
+<div class="prakash"></div> <!-- C -->
+<!-- directive: prakash --> <!-- M -->
+
+<script>
+var app = angular.module("myApp", []);
+app.directive("prakash", function() {
+    return {
+        restrict : "E",
+        template : "<h1>My directive!</h1>"
+    };
+});
+/*
+    The legal restrict values are:
+        E for Element name
+        A for Attribute
+        C for Class
+        M for Comment
+*/
+</script>
+
+</body>
+</html>

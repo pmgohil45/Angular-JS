@@ -8,10 +8,20 @@
     <p>Input something in the input box:</p>
     <p>Name: <input type="text" ng-model="name"></p>
     <p ng-bind="name"></p>
+    <p>my name: {{ name }}</p>
     
     <!-- ng init - initialize variables -->
     <p>The name is <span ng-bind="firstName"></span></p>
-    
+
+    <!-- arithmatic op -->
+    <p>Num 1:<input type="number" ng-model="n1"></p>
+    <p>Num 2:<input type="number" ng-model="n2"></p>
+    <p>Addition: {{n1+n2}}</p>
+    <p>Subtraction: {{n1-n2}}</p>
+    <p>Multiplication: {{n1*n2}}</p>
+    <p>Division: {{n1/n2}}</p>
+    <p>Module: {{n1%n2}}</p>
+
 </div>
 </body>
 </html>
