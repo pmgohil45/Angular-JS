@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<style>
+table, th , td  {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="customersCtrl"> 
+<p>Name Wise:</p>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Country</th>
+    </tr>
+    <tr ng-repeat="x in names | orderBy : 'Name'">
+        <td>{{ x.Name }}</td>
+        <td>{{ x.Country }}</td>
+    </tr>
+</table>
+
+<p>Country Wise:</p>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Country</th>
+    </tr>
+    <tr ng-repeat="x in names | orderBy : 'Country'">
+        <td>{{ x.Name }}</td>
+        <td>{{ x.Country }}</td>
+    </tr>
+</table>
+
+<p>Uppercase:</p>
+<table>
+    <tr>
+        <th>Index</th>
+        <th>Name</th>
+        <th>Country</th>
+    </tr>
+    <tr ng-repeat="x in names | orderBy : 'Country'">
+        <td ng-if="$odd" style="background-color:#f1f1f1">{{ $index + 1 }}</td><!-- Table Index -->
+        <td ng-if="$even" style="background-color:cyan">{{ $index + 1 }}</td><!-- Table Index -->
+        <td ng-if="$odd" style="background-color:#f1f1f1">{{ x.Name | uppercase }}</td><!-- uppercase filter -->
+        <td ng-if="$even" style="background-color:cyan">{{ x.Name | uppercase }}</td><!-- uppercase filter -->
+        <td ng-if="$odd" style="background-color:#f1f1f1">{{ x.Country | uppercase }}</td><!-- uppercase filter -->
+        <td ng-if="$even" style="background-color:cyan">{{ x.Country | uppercase }}</td><!-- uppercase filter -->
+    </tr>
+</table>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+    $http.get("ng-define-person-data.php")
+    .then(function (response) {$scope.names = response.data.records;});
+});
+</script>
+
+</body>
+</html>
