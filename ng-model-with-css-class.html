@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<style>
+input.ng-touched {
+    background-color: cyan;
+}
+</style>
+<body>
+<form ng-app="" name="myForm">
+    Enter your first name:
+    <input name="myfnm" ng-model="myFnm" required><br>
+    Enter your last name:
+    <input name="mylnm" ng-model="myLnm" required>
+</form>
+<!---
+* Edit the text field and it will get/lose classes according to the status.
+* A text field with the "required" attribute is not valid when it is empty.
+
+* The ng-model directive adds/removes the following classes, according to the status of the form field:
+    * ng-empty
+    * ng-not-empty
+    * ng-touched
+    * ng-untouched
+    * ng-valid
+    * ng-invalid
+    * ng-dirty
+    * ng-pending
+    * ng-pristine
+-->
+</body>
+</html>

@@ -3,18 +3,22 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <body>
 
-<div ng-app="" ng-init="names=[
+<!-- Run below ng-init -->
+<!--<div ng-app="" ng-init="names=[
                         {name:'Prakash',city:'Rajkot',state:'Gujarat',country:'India'},
                         {name:'Jeel',city:'Jetpur',state:'Gujarat',country:'India'},
                         {name:'Raj',city:'Porbandar',state:'Gujarat',country:'India'}]">
+-->
+<!-- Runs external JS file or ng-controller -->
+<div ng-app="myApp" ng-controller="namesCtrl">
 
-<p>Looping with objects:</p>
-<ul>
-  <li ng-repeat="x in names">
-  {{ x.name + ' - ' + x.city + ', ' + x.state + ', ' + x.country }}</li>
-</ul>
+  <p>Looping with objects:</p>
+  <ul>
+    <li ng-repeat="x in names">
+    {{ x.name + ' - ' + x.city + ', ' + x.state + ', ' + x.country }}</li>
+  </ul>
 
 </div>
-
+<script src="ng-define-array-controller.js"></script>
 </body>
 </html>
