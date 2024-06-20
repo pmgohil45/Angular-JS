@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+<p>Using Select Tag and ng-options directive:
+    <select ng-model="selecteOS" ng-options="x.os for x in os">
+    </select>
+</p>
+<h1>You selected: {{selecteOS.os}}</h1>
+<h2>Its version is: {{selecteOS.version}}</h2>
+
+<p>Using Option Tag and ng-repeat directive:
+    <select>
+        <option ng-model="selecteOS" ng-repeat="x in os">{{x.os }} | {{ x.version }}</option>
+    </select>
+</p>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.os = [
+        {os : "Linux", version : "Linux Mint 21.3 'Virginia'"},
+        {os : "Ubuntu", version : "Ubuntu 24.04"},
+        {os : "Windows", version : "Windows 12"},
+        {os : "Android", version : "Android 15 'Vanilla Ice Cream'"},
+        {os : "Mac", version : "14.5"}
+    ];
+});
+</script>
+</body>
+</html>
