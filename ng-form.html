@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="formCtrl">
+    <form>
+        <!-- input type text -->
+        Enter Your Name: <input type="text" ng-model="firstname"><br>
+        <!-- input type checkbox -->
+        Click to Check Entered name is correct or not: <input type="checkbox" ng-model="myVar">
+        <h1 ng-show="myVar">You entered: {{firstname}}</h1><br>
+        <!-- input type radio -->
+        Pick a topic:
+            <input type="radio" ng-model="myItems" value="dogs">Dogs
+            <input type="radio" ng-model="myItems" value="tuts">Tutorials
+            <input type="radio" ng-model="myItems" value="cars">Cars
+            <div ng-switch="myItems">
+                <div ng-switch-when="dogs">
+                   <h1>Dogs</h1>
+                   <p>Welcome to a world of dogs.</p>
+                </div>
+                <div ng-switch-when="tuts">
+                   <h1>Tutorials</h1>
+                   <p>Learn from examples.</p>
+                </div>
+                <div ng-switch-when="cars">
+                   <h1>Cars</h1>
+                   <p>Read about cars.</p>
+                </div>
+            </div><br>
+        <!-- Select box -->
+        Select a topic:
+            <select ng-model="myItem1">
+                <option value="">Select
+                <option value="dogs">Dogs
+                <option value="tuts">Tutorials
+                <option value="cars">Cars
+            </select>
+            <div ng-switch="myItem1">
+                <div ng-switch-when="dogs">
+                   <h1>Dogs</h1>
+                   <p>Welcome to a world of dogs.</p>
+                </div>
+                <div ng-switch-when="tuts">
+                   <h1>Tutorials</h1>
+                   <p>Learn from examples.</p>
+                </div>
+                <div ng-switch-when="cars">
+                   <h1>Cars</h1>
+                   <p>Read about cars.</p>
+                </div>
+            </div>
+    </form>
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('formCtrl', function($scope) {
+        $scope.firstname = "Prakash";
+    });
+</script>
+
+</body>
+</html>

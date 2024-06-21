@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<body>
+
+<script>
+var app = angular.module("myShoppingList", []); 
+app.controller("myCtrl", function($scope) {
+    $scope.products = ["Milk", "Bread", "Cheese"];
+    $scope.addItem = function () {
+        $scope.errortext = "";
+        if (!$scope.addMe) {return;}
+        if ($scope.products.indexOf($scope.addMe) == -1) {
+            $scope.products.push($scope.addMe);
+        } else {
+            $scope.errortext = "The item is already in your shopping list.";
+        }
+    }
+    $scope.removeItem = function (x) {
+        $scope.errortext = "";    
+        $scope.products.splice(x, 1);
+    }
+});
+</script>
+
+<div ng-app="myShoppingList" ng-cloak ng-controller="myCtrl" class="card mx-auto mt-5" style="max-width: 400px;">
+  <div class="card-header bg-light">
+    <h3 class="card-title mb-0">My Shopping List</h3>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li ng-repeat="x in products" class="list-group-item d-flex justify-content-between align-items-center">
+      {{x}}
+      <span ng-click="removeItem($index)" style="cursor: pointer;" class="text-danger">&times;</span>
+    </li>
+  </ul>
+  <div class="card-footer bg-light">
+    <div class="input-group">
+      <input placeholder="Add shopping items here" ng-model="addMe" class="form-control">
+      <div class="input-group-append">
+        <button ng-click="addItem()" class="btn btn-success">Add</button>
+      </div>
+    </div>
+    <p class="text-danger mt-2">{{errortext}}</p>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="" ng-init="mySwitch=true;hour=13">
+    <button ng-disabled="mySwitch">Click Me!</button><br>
+    <input type="checkbox" ng-model="mySwitch"/>Button<br>
+    <p>{{ mySwitch }}</p>
+    <p ng-show="true">ng-show: I am visible.</p>
+    <p ng-show="false">ng-show: I am not visible.</p>
+    <p ng-show="hour > 12">I am visible prakash.</p>
+    <p ng-hide="true">ng-hide: I am visible.</p>
+    <p ng-hide="false">ng-hide: I am not visible.</p>
+</div> 
+
+</body>
+</html>
